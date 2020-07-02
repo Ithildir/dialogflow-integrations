@@ -30,9 +30,9 @@ const app = express();
 //See https://dialogflow.com/docs/reference/v2-auth-setup and
 // https://cloud.google.com/dialogflow/docs/setup for details.
 
-const projectId = 'Place dialogflow project id here';
-const appId = 'Place Microsoft app id here';
-const appPassword = 'Place Microsoft password here';
+const projectId = process.env.DIALOGFLOW_PROJECT_ID;
+const appId = process.env.MICROSOFT_APP_ID;
+const appPassword = process.env.MICROSOFT_APP_PASSWORD;
 
 const sessionClient = new dialogflowSessionClient(projectId);
 
