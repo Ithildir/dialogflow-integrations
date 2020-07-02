@@ -1,0 +1,9 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/[ithildir-bot]/dialogflow-integrations', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/[ithildir-bot]/dialogflow-integrations']
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['run', 'deploy', 'dialogflow-integrations', '--image', 'gcr.io/[ithildir-bot]/dialogflow-integrations', '--region', '[us-west1]', '--platform', 'managed', '--allow-unauthenticated']
+images:
+- gcr.io/[ithildir-bot]/dialogflow-integrations
